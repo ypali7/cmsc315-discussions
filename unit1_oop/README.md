@@ -33,3 +33,11 @@ Your reflection should be approximately 150–200 words and address the followin
 2. What challenges did you encounter, and how did you overcome them?
 3. Compare OOP to procedural programming.
 4. Discuss the benefits of maintainability and reusability and apply this managing overhead, practical application development, and future use.
+
+
+## Implementation Documentation
+
+For this assignment, I created a parent class called `ParentClass` that contained a class variable for species and instance variables for name and age. I then created `ChildClass`, which inherited from `ParentClass` and added a school name class variable, student ID, courses list, and a method for enrolling in additional courses. I also overrode the `display_info()` method to display the additional information associated with the child class.
+I demonstrated class and instance namespaces by creating two `ChildClass` objects. I accessed the `school_name` class variable through both the class and an object. I then added an `honor_student` attribute to only one object and used `__dict__` to demonstrate how the two instance namespaces differed.
+I demonstrated shallow and deep copying using an object containing nested mutable lists. After modifying a nested list in the original object, the same modification appeared in the shallow copy because the nested data was shared. The deep copy remained unchanged because `deepcopy()` created an independent copy of the nested data.
+As an extension, I added the `enroll_course()` method, which allowed courses to be added to a student's course list after the object had been created.
