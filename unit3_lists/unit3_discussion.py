@@ -22,7 +22,12 @@ def insert_at(lst, index, value):
     - Use comments to explain how insertion performance may vary depending on
       where the insertion occurs.
     """
-    pass
+    # Insert places the new value at the requested index
+    # Elements at and after that index shift one position to the right.
+    # Inserting near the beginning generally requires more shifting than
+    # inserting near the end of the list.
+    list.insert(lst, index, value)
+
 
 
 def delete_at(lst, index):
@@ -36,7 +41,14 @@ def delete_at(lst, index):
     - Return None if the index is invalid.
     - Add comments explaining why index validation and safe deletion are important.
     """
-    pass
+    #Validate index before attempting deletion
+    # This prevents an indexError when the requested position doesn't exist.
+    if index < 0 or index >= len(lst):
+        return None
+
+    #pop() removes and returns the value stored at the specified index.
+    # Elements after the removed value shift one position to the left.
+    return lst.pop(index)
 
 
 def search_value(lst, value):
@@ -49,7 +61,14 @@ def search_value(lst, value):
     - Return -1 if the value is not found.
     - Add comments explaining why this is a linear search and why it scans sequentially.
     """
-    pass
+    # This is a linear search because each element is scanned sequentially
+    # from the beginning of the list until the value is found.
+    for index in range(len(lst)):
+        if lst[index] == value:
+            return index
+
+        # Return -1 when the value isn't present
+    return -1
 
 
 def main():
@@ -72,6 +91,25 @@ def main():
     print("\n=== INSERTION TESTS ===")
     print("TODO: Create a list and demonstrate insertions.")
 
+    # Real world application: My spotify playlist.
+    playlist = ["Petal", "Tomorrow", "Like I Do"]
+
+    # Displaying original list
+    print("Original playlist:" , playlist)
+
+    # Testing insertion at the beginning
+    insert_at(playlist,0, "Commando")
+    print("After inserting at the beginning:", playlist)
+
+    # Testing insertion at the middle
+    insert_at(playlist, 2, "Kiss Me")
+    print("After inserting at the middle:", playlist)
+
+
+    # Testing insertion at the end
+    insert_at(playlist, len(playlist), "Bad Habits")
+    print("After inserting at the end:", playlist)
+
     # ===============================
     # TODO (Student): DELETION TESTS
     # ===============================
@@ -88,6 +126,31 @@ def main():
     print("\n=== DELETION TESTS ===")
     print("TODO: Demonstrate deletions from multiple positions.")
 
+
+    # Removing the first item
+    removed = delete_at(playlist, 0)
+
+    # Display the removed item and updated list
+    print("Removed from beginning:", removed)
+    print("Updated playlist:", playlist)
+
+
+    # Removing an item from the middle
+    middle_index = len(playlist) // 2
+    removed = delete_at(playlist, middle_index)
+
+    #Display the removed item and updated list
+    print("Removed from middle:", removed)
+    print("Updated playlist:", playlist)
+
+
+    # Removing from the end
+    removed = delete_at(playlist, len(playlist) - 1)
+
+    # Display the removed item and updated list
+    print("Removed from end:", removed)
+    print("Updated playlist:", playlist)
+
     # ===============================
     # TODO (Student): SEARCH TESTS
     # ===============================
@@ -100,6 +163,15 @@ def main():
 
     print("\n=== SEARCH TESTS ===")
     print("TODO: Demonstrate searching for values.")
+
+
+    # Searching for a song that exists
+    found_index = search_value(playlist, "Kiss Me")
+    print("Searching for Kiss Me. Index found:", found_index)
+
+    # Searching for a song that does not exist
+    missing_index = search_value(playlist, "Tomorrow")
+    print("Searching for Tomorrow. Result:", missing_index)
 
     # ===============================
     # TODO (Student): EDGE CASES
@@ -116,6 +188,21 @@ def main():
 
     print("\n=== EDGE CASES ===")
     print("TODO: Demonstrate at least two edge cases.")
+
+
+    # Case 1: Deleting using an invalid index. Should display "None"
+    invalid_delete = delete_at(playlist, 100)
+    print("Deleting at invalid index 100:", invalid_delete)
+
+    # Case 2: Inserting into an empty list
+    empty_list = []
+    insert_at(empty_list, 0, "Deuces")
+    print("Insert into empty list:", empty_list)
+
+    # Case 3: Attempting to delete from an empty list
+    random_lst = []
+    empty_delete = delete_at(random_lst, 0)
+    print("Deleting from an empty list:", empty_delete)
 
 
 
