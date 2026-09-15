@@ -22,10 +22,13 @@ This assignment compares linear search and binary search.
 
 ## Discussion Board Reflection
 
-After completing the programming assignment, add this reflection to your initial discussion post in LEO.
-
-Your reflection should be approximately 150–200 words and address the following questions:
-
-1. What concepts or skills did you learn while completing this assignment?
-2. What challenges did you encounter, and how did you overcome them?
-3. Explain when to use linear versus binary search, including tradeoffs in real-world scenarios.
+This assignment helped me better understand how linear search and binary search work and how their efficiency changes 
+depending on the size of the dataset. Linear search checks each element one at a time, giving it O(n) time complexity, 
+while binary search repeatedly cuts the search area in half. Testing both algorithms on a small dataset and then on a 
+dataset with 10,000 values helped me see why binary search becomes more useful as the amount of data increases. I also 
+tested edge cases using an empty list and a single-element list to make sure both algorithms handled them correctly. 
+The biggest challenge for me was understanding how low, high, and mid work together during binary search. Walking 
+through how the search area changes after each comparison helped me understand it better. Linear search is useful for 
+small or unsorted datasets because it does not require the data to be sorted. Binary search is much faster for large, 
+sorted datasets, but requiring sorted data is a tradeoff. For example, searching through a large sorted list of user 
+IDs would be a good use for binary search.
